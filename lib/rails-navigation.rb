@@ -5,10 +5,10 @@ module Rails
 
       protected
 
-      def add_navigation(name, url = '')
+      def add_navigation(name, url = '', options = {})
         @navigation ||= []
         url = send(url) if url.is_a?(Symbol)
-        @navigation << [name, url]
+        @navigation << [name, url, options]
       end
 
       def self.add_navigation(name, url, options = {})
@@ -22,8 +22,8 @@ module Rails
     module Helper
 
       def navigation(tag = :li)
-        @navigation.map do |txt, path|
-          link = link_to_unless (path.blank? || current_page?(path)), h(txt), path
+        (@navigation || []).map do |txt, path, options|
+          link = link_to_unless path.blank?, h(txt), path, options
           content_tag(tag, link) if tag
         end.join.html_safe
       end
