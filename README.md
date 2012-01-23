@@ -16,15 +16,15 @@ In `app/controllers/things_controller.rb`:
 
       def show
         @thing = Thing.find(params[:id])
-        add_navigation @thing.name, thing_path(@thing)
+        add_navigation :nav => :main, :title => @thing.name, :url => thing_path(@thing)
       end
 
     end
 
 In `app/views/layouts/application.html.erb`:
 
-    <%= navigation %>
-    <%= navigation(:p) %> # define the wrap tag you want, default is :li
+    <%= navigation(:main) %>
+    <%= navigation(:main, :p) %>   # define the wrap tag you want, default is :li
 
 ## Acknowledgments
 

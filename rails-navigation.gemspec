@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'rails-navigation'
-  s.version = '1.0.1'
+  s.version = '1.0.2'
   s.authors = ["Thomas Koenig", "William Meleyal"]
   s.email = "team@wollzelle.com"
   s.homepage = "http://wollzelle.com"
