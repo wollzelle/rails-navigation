@@ -24,7 +24,8 @@ module Rails
     module Helper
 
       def navigation?(nav_name)
-        !@navigation[nav_name].nil?
+        return false unless @navigation
+        !(@navigation)[nav_name].nil?
       end
       
       def navigation(nav_name, tag = :li)
